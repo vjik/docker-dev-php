@@ -1,8 +1,8 @@
 ARG PHP_VERSION
 FROM php:${PHP_VERSION}
 
-# Updating packages index
-RUN apt -y update
+# Upgrade packages
+RUN apt -y update && apt upgrade
 
 # Required tools
 # - Composer: git, unzip
