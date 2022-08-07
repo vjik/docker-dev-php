@@ -25,12 +25,8 @@ RUN docker-php-ext-install \
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Psalm
-RUN composer global require vimeo/psalm
-
 # Starship shell prompt
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
-RUN echo 'eval "$(starship init bash)"' >> /etc/bash.bashrc
 
 # Create user
 RUN groupadd -g ${GROUP_ID} ${GROUP_NAME}
@@ -41,5 +37,18 @@ RUN useradd \
     ${USER_NAME}
 
 USER ${USER_NAME}
+
+# Psalm
+RUN composer global require vimeo/psalm
+
+# Starship for bash
+RUN echo 'eval "$(starship init bash)"' >> ~/.bashrc
+
+# Aliases
+RUN echo 'alias c="composer"' >> ~/.bashrc
+RUN echo 'alias cu="composer update"' >> ~/.bashrc
+RUN echo 'alias pu="./vendor/bin/phpunit"' >> ~/.bashrc
+RUN echo 'alias puf="./vendor/bin/phpunit --filter"' >> ~/.bashrc
+RUN echo 'alias psalm="./vendor/bin/psalm"' >> ~/.bashrc
 
 CMD ["bash"]
