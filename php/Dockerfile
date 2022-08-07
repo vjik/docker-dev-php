@@ -22,3 +22,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Psalm
 RUN composer global require vimeo/psalm
+
+# Starship shell prompt
+RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+RUN echo 'eval "$(starship init bash)"' >> /etc/bash.bashrc
