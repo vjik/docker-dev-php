@@ -1,5 +1,0 @@
-version: 3
-
-tasks:
-  build: docker build -t vjik/php:{{.CLI_ARGS}} --build-arg PHP_VERSION={{.CLI_ARGS}} .
-  run: docker run -it --rm vjik/php:{{.CLI_ARGS}}
