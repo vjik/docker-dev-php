@@ -23,7 +23,6 @@ RUN docker-php-ext-install \
 
 # Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Starship shell prompt
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
@@ -37,9 +36,6 @@ RUN useradd \
     ${USER_NAME}
 
 USER ${USER_NAME}
-
-# Psalm
-RUN composer global require vimeo/psalm
 
 # Starship for bash
 RUN echo 'eval "$(starship init bash)"' >> ~/.bashrc
