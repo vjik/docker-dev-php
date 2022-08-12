@@ -45,6 +45,9 @@ RUN echo 'alias c="composer"' >> ~/.bashrc
 RUN echo 'alias cu="composer update"' >> ~/.bashrc
 RUN echo 'alias pu="./vendor/bin/phpunit"' >> ~/.bashrc
 RUN echo 'alias puf="./vendor/bin/phpunit --filter"' >> ~/.bashrc
-RUN echo 'alias psalm="./vendor/bin/psalm"' >> ~/.bashrc
+RUN echo 'alias psalm="./vendor/bin/psalm --no-cache"' >> ~/.bashrc
+RUN echo 'alias psalm74="./vendor/bin/psalm --no-cache --php-version=7.4"' >> ~/.bashrc
+RUN echo 'alias psalm80="./vendor/bin/psalm --no-cache --php-version=8.0"' >> ~/.bashrc
+RUN echo 'alias psalm81="./vendor/bin/psalm --no-cache --php-version=8.1"' >> ~/.bashrc
 
 CMD ["bash"]
