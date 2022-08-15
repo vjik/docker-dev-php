@@ -3,3 +3,11 @@ version: 3
 tasks:
   build: docker build -t vjik/dev-php:{{.CLI_ARGS}} --build-arg PHP_VERSION={{.CLI_ARGS}} .
   run: docker run -it --rm vjik/dev-php:{{.CLI_ARGS}}
+  build-all:
+      - task build -- 7.4
+      - task build -- 8.0
+      - task build -- 8.1
+  push-all:
+      - docker push vjik/dev-php:7.4
+      - docker push vjik/dev-php:8.0
+      - docker push vjik/dev-php:8.1
