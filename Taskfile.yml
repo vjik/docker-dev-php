@@ -1,7 +1,7 @@
 version: 3
 
 tasks:
-  build: docker build -t vjik/dev-php:{{.CLI_ARGS}} --build-arg PHP_VERSION={{.CLI_ARGS}} .
+  build: docker build -t vjik/dev-php:{{.CLI_ARGS}} --build-arg PHP_VERSION={{.CLI_ARGS}} ./src
   run: docker run -it --rm vjik/dev-php:{{.CLI_ARGS}}
   build-all:
       - task build -- 7.4
