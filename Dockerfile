@@ -16,6 +16,10 @@ RUN apt -y install \
 RUN docker-php-ext-install \
     intl
 
+# Xdebug
+RUN pecl install xdebug
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 # Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
