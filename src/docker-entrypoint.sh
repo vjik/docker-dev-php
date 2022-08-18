@@ -57,6 +57,8 @@ alias cu="composer update"
 # PHPUnit Aliases
 echo '
 alias pu="./vendor/bin/phpunit"
+alias puct="./vendor/bin/phpunit --coverage-text"
+alias puc="./vendor/bin/phpunit --coverage-html=cover"
 alias puf="./vendor/bin/phpunit --filter"
 ' >> "$homedir"/.bashrc
 
