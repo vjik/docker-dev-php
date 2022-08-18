@@ -16,6 +16,39 @@ docker pull vjik/dev-php:8.1
 
 Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
 
+## Aliases
+
+### Composer
+
+|   Alias   | Command           |
+|:---------:|-------------------|
+|    `c`    | `composer`        |
+|   `cu`    | `composer update` |
+
+### PHPUnit
+
+|   Alias   | Command                                      |
+|:---------:|----------------------------------------------|
+|   `pu`    | `./vendor/bin/phpunit`                       |
+|   `puc`   | `./vendor/bin/phpunit --coverage-html=cover` |
+|  `puct`   | `./vendor/bin/phpunit --coverage-text`       |
+|   `puf`   | `./vendor/bin/phpunit --filter`              |
+
+### Psalm
+
+|   Alias   | Command                                           |
+|:---------:|---------------------------------------------------|
+|  `psalm`  | `./vendor/bin/psalm --no-cache`                   |
+| `psalm74` | `./vendor/bin/psalm --no-cache --php-version=7.4` |
+| `psalm80` | `./vendor/bin/psalm --no-cache --php-version=8.0` |
+| `psalm81` | `./vendor/bin/psalm --no-cache --php-version=8.1` |
+
+### Other
+
+| Alias | Command |
+|:-----:|---------|
+| `cls` | `clear` |
+
 ## Build an image
 
 ```shell
