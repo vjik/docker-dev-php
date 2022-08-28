@@ -5,12 +5,13 @@ FROM php:${PHP_VERSION}
 RUN apt -y update && apt -y upgrade
 
 # Required tools
-# - Composer: git, unzip
+# - Composer: git, unzip, bash-completion
 # - PHP intl extension: libicu-dev
 RUN apt -y install \
     git \
     unzip \
-    libicu-dev
+    libicu-dev \
+    bash-completion
 
 # PHP extensions
 RUN docker-php-ext-install \
@@ -22,6 +23,7 @@ COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN composer completion bash | tee /etc/bash_completion.d/composer
 
 # Starship shell prompt
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
