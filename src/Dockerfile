@@ -8,6 +8,7 @@ RUN apt -y update && apt -y upgrade
 # - Composer: git, unzip, bash-completion
 # - PHP intl extension: libicu-dev
 RUN apt -y install \
+    sudo \
     git \
     unzip \
     libicu-dev \
