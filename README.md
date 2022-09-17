@@ -33,6 +33,11 @@ docker run -it --rm --name dev-php -v /host/projects:/projects vjik/dev-php:8.1
   (`/projects`).
 - `vjik/dev-php:8.1` — Image name.
 
+#### SSH configuration
+
+You can configure SSH in container via mount folder with SSH configuration to path `/config/.ssh`. For what add to run 
+container command argument, for example, `-v ~/.ssh:/config/.ssh`.
+
 ## Features
 
 ### Aliases
