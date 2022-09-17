@@ -6,7 +6,9 @@ PHP docker image for local development that include:
 - [GIT](https://git-scm.com/)
 - [Starship shell prompt](https://starship.rs/)
 
-## DockerHub
+## General usage
+
+### Pull image from DockerHub
 
 [Image on DockerHub](https://hub.docker.com/r/vjik/dev-php), docker pull command:
 
@@ -16,7 +18,7 @@ docker pull vjik/dev-php:8.1
 
 Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
 
-## Run container
+### Run container
 
 Recommended run command:
 
@@ -31,7 +33,9 @@ docker run -it --rm --name dev-php -v /host/projects:/projects vjik/dev-php:8.1
   (`/projects`).
 - `vjik/dev-php:8.1` — Image name.
 
-## Aliases
+## Features
+
+### Aliases
 
 | Alias   | Command                                         |
 |---------|-------------------------------------------------|
