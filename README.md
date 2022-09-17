@@ -34,6 +34,8 @@ Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
 
 ## Build an image
 
+Use [Task](https://taskfile.dev/) for simplify run:
+
 ```shell
 task build -- {PHP_VERSION}
 ```
