@@ -55,7 +55,7 @@ container command argument, for example, `-v ~/.ssh:/config/.ssh`.
 |---------|-------------------------------------------------|
 | c       | composer                                        |
 | cu      | composer update                                 |
-| pu      | ./vendor/bin/phpunit`                           |
+| pu      | ./vendor/bin/phpunit                            |
 | puc     | ./vendor/bin/phpunit --coverage-html=cover      |
 | puct    | ./vendor/bin/phpunit --coverage-text            |
 | puf     | ./vendor/bin/phpunit --filter                   |
