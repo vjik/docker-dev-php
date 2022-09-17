@@ -43,7 +43,7 @@ useradd \
     -G sudo \
     -m \
     "$USER_NAME"
-echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME"
+echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME" &> /dev/null
 
 homedir=$( getent passwd "$USER_NAME" | cut -d: -f6 )
 
