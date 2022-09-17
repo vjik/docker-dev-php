@@ -16,6 +16,21 @@ docker pull vjik/dev-php:8.1
 
 Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
 
+## Run container
+
+Recommended run command:
+
+```shell
+docker run -it --rm --name dev-php -v /host/projects:/projects vjik/dev-php:8.1
+```
+
+- `-it` — Interactive mode with allocate a pseudo terminal.
+- `--rm` — Automatically remove the container when it exits.
+- `--name dev-php` — Assign name "dev-php" to the container.
+- `-v /host/projects:/projects` — Mount folder with your projects (replace `/host/projects` to your path) to container
+  (`/projects`).
+- `vjik/dev-php:8.1` — Image name.
+
 ## Aliases
 
 | Alias   | Command                                         |
