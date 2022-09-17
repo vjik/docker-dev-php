@@ -7,6 +7,8 @@ PHP docker image for local development that include:
 - [GIT](https://git-scm.com/)
 - [Starship shell prompt](https://starship.rs/)
 
+![](screenshot.png)
+
 ## General usage
 
 ### Pull image from DockerHub
