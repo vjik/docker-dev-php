@@ -2,7 +2,8 @@
 
 PHP docker image for local development that include:
 
-- [Composer](https://getcomposer.org/)
+- Bash terminal with [predefined aliases](#aliases)
+- [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
 - [GIT](https://git-scm.com/)
 - [Starship shell prompt](https://starship.rs/)
 
