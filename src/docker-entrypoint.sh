@@ -40,10 +40,17 @@ groupadd -g "$GROUP_ID" "$GROUP_NAME"
 useradd \
     -u "$USER_ID" \
     -g "$GROUP_NAME" \
+    -G sudo \
     -m \
     "$USER_NAME"
+echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME"
 
 homedir=$( getent passwd "$USER_NAME" | cut -d: -f6 )
+
+# .ssh directory
+if [ -e /config/.ssh ]; then
+  ln -s /config/.ssh "$homedir"/.ssh
+fi
 
 # Starship for bash
 echo 'eval "$(starship init bash)"' >> "$homedir"/.bashrc
