@@ -26,7 +26,7 @@ Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
 Recommended run command:
 
 ```shell
-docker run -it --rm --name dev-php -v /host/projects:/projects vjik/dev-php:8.1 --uname vjik --uid 1000 --gname vjik -gid 1000
+docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.1 --uname vjik --uid 1000 --gname vjik -gid 1000
 ```
 
 - `-it` — Interactive mode with allocate a pseudo terminal.
@@ -34,6 +34,7 @@ docker run -it --rm --name dev-php -v /host/projects:/projects vjik/dev-php:8.1 
 - `--name dev-php` — Assign name "dev-php" to the container.
 - `-v /host/projects:/projects` — Mount folder with your projects (replace `/host/projects` to your path) to container
   (`/projects`).
+- `-w /projects` — Set `/projects` as working directory inside the container.
 - `vjik/dev-php:8.1` — Image name.
 - `--uname vjik` — Set username in container.
 - `--uid 1000` — Set user ID in container.
