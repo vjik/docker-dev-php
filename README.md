@@ -3,9 +3,10 @@
 PHP docker image for local development that include:
 
 - Bash terminal with [predefined aliases](#aliases)
+- [Starship shell prompt](https://starship.rs/)
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
 - [GIT](https://git-scm.com/)
-- [Starship shell prompt](https://starship.rs/)
+- [GnuPG](https://www.gnupg.org/) for sign commits
 
 ![](screenshot.png)
 
