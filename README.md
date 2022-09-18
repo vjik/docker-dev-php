@@ -57,6 +57,17 @@ add the appropriate argument to the container run command. For example:
 
 `-v ~/.gitconfig:/config/.gitconfig`
 
+#### GnuPG configuration
+
+You can configure GnuPG in container via mount folder with GnuPG configuration to path `/config/.gnupg`. To do this, add the
+appropriate argument to the container run command. For example:
+
+`-v ~/dev-gnupg:/config/.gnupg`
+
+Recommend don't use system `.gnupg` directory. Better create new directory and mount it.
+
+To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.conf` file (create if not exist).
+
 ## Features
 
 ### Aliases
