@@ -45,8 +45,17 @@ Recommended to use the same username and group as in your system.
 
 #### SSH configuration
 
-You can configure SSH in container via mount folder with SSH configuration to path `/config/.ssh`. For what add to run 
-container command argument, for example, `-v ~/.ssh:/config/.ssh`.
+You can configure SSH in container via mount folder with SSH configuration to path `/config/.ssh`. To do this, add the
+appropriate argument to the container run command. For example:
+
+`-v ~/.ssh:/config/.ssh`
+
+#### GIT configuration
+
+You can configure GIT in container via mount configuration file `.gitconfig` to path `/config/.gitconfig`. To do this, 
+add the appropriate argument to the container run command. For example:
+
+`-v ~/.gitconfig:/config/.gitconfig`
 
 ## Features
 
