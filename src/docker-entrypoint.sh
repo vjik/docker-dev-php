@@ -48,12 +48,12 @@ echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME" &> /dev/null
 homedir=$( getent passwd "$USER_NAME" | cut -d: -f6 )
 
 # SSH configuration
-if [ -e /config/.ssh ]; then
+if [ -d /config/.ssh ]; then
   ln -s /config/.ssh "$homedir"/.ssh
 fi
 
 # GIT configuration
-if [ -e /config/.gitconfig ]; then
+if [ -f /config/.gitconfig ]; then
   ln -s /config/.gitconfig "$homedir"/.gitconfig
 fi
 
