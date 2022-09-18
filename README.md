@@ -3,9 +3,10 @@
 PHP docker image for local development that include:
 
 - Bash terminal with [predefined aliases](#aliases)
+- [Starship shell prompt](https://starship.rs/)
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
 - [GIT](https://git-scm.com/)
-- [Starship shell prompt](https://starship.rs/)
+- [GnuPG](https://www.gnupg.org/) for sign commits
 
 ![](screenshot.png)
 
@@ -56,6 +57,17 @@ You can configure GIT in container via mount configuration file `.gitconfig` to 
 add the appropriate argument to the container run command. For example:
 
 `-v ~/.gitconfig:/config/.gitconfig`
+
+#### GnuPG configuration
+
+You can configure GnuPG in container via mount folder with GnuPG configuration to path `/config/.gnupg`. To do this, add the
+appropriate argument to the container run command. For example:
+
+`-v ~/dev-gnupg:/config/.gnupg`
+
+Recommend don't use system `.gnupg` directory. Better create new directory and mount it.
+
+To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.conf` file (create if not exist).
 
 ## Features
 

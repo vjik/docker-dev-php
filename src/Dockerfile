@@ -10,6 +10,7 @@ RUN apt -y update && apt -y upgrade
 RUN apt -y install \
     sudo \
     git \
+    gnupg \
     unzip \
     libicu-dev \
     bash-completion
