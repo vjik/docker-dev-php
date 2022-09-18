@@ -57,6 +57,11 @@ if [ -f /config/.gitconfig ]; then
   ln -s /config/.gitconfig "$homedir"/.gitconfig
 fi
 
+# GnuPG keys
+if [ -d /config/.gnupg ]; then
+  ln -s /config/.gnupg "$homedir"/.gnupg
+fi
+
 # Starship for bash
 echo 'eval "$(starship init bash)"' >> "$homedir"/.bashrc
 
