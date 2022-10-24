@@ -23,6 +23,9 @@ RUN docker-php-ext-install \
 RUN pecl install xdebug
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+# PHP configuration
+COPY php.ini /usr/local/etc/php/conf.d/php.ini
+
 # Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer completion bash | tee /etc/bash_completion.d/composer
