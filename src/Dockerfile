@@ -13,7 +13,11 @@ RUN apt -y install \
     gnupg \
     unzip \
     libicu-dev \
-    bash-completion
+    bash-completion \
+    locales
+
+# Add "en_US.UTF-8" locale
+RUN sed -i '/en_US\.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
 # PHP extensions
 RUN docker-php-ext-install \
