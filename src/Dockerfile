@@ -19,7 +19,8 @@ RUN apt -y install \
 # PHP extensions
 RUN docker-php-ext-install \
     intl \
-    gettext
+    gettext \
+    sockets
 
 # Xdebug
 RUN pecl install xdebug
