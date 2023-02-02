@@ -33,6 +33,10 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer completion bash | tee /etc/bash_completion.d/composer
 
+# Node.js
+RUN curl -sL https://deb.nodesource.com/setup_19.x | bash - && \
+    apt-get install -y nodejs
+
 # Locales
 RUN sed -i '/en_US\.UTF-8/s/^# //g' /etc/locale.gen
 RUN locale-gen

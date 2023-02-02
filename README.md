@@ -6,6 +6,7 @@ PHP docker image for local development that include:
   [intl](https://www.php.net/manual/intro.intl.php),
   [gettext](https://www.php.net/manual/intro.gettext.php),
   [sockets](https://www.php.net/manual/intro.sockets.php)
+- [Node.js](https://nodejs.org/)
 - Bash terminal with [predefined aliases](#aliases)
 - [Starship shell prompt](https://starship.rs/)
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
