@@ -65,6 +65,9 @@ fi
 # Starship for bash
 echo 'eval "$(starship init bash)"' >> "$homedir"/.bashrc
 
+# SSH agent
+echo 'eval "$(ssh-agent -s)"' >> "$homedir"/.bashrc
+
 # Composer Aliases
 echo '
 alias c="composer"

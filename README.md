@@ -12,6 +12,7 @@ PHP docker image for local development that include:
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
 - [GIT](https://git-scm.com/)
 - [GnuPG](https://www.gnupg.org/) for sign commits
+- OpenSSH authentication agent (`ssh-agent`)
 
 ![](screenshot.png)
 

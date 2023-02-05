@@ -7,6 +7,7 @@ RUN apt -y update && apt -y upgrade
 # Required tools
 # - Composer: git, unzip, bash-completion
 # - PHP intl extension: libicu-dev
+# - SSH agent: openssh-client
 RUN apt -y install \
     sudo \
     git \
@@ -14,7 +15,8 @@ RUN apt -y install \
     unzip \
     libicu-dev \
     bash-completion \
-    locales
+    locales \
+    openssh-client
 
 # PHP extensions
 RUN docker-php-ext-install \
