@@ -98,11 +98,8 @@ To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.co
 Use [Task](https://taskfile.dev/) for simplify run:
 
 ```shell
-task build -- {PHP_VERSION}
-```
-
-For example, build an image with PHP 8.1:
-
-```shell
-task build -- 8.1
+task build74 # PHP 7.4
+task build80 # PHP 8.0
+task build81 # PHP 8.1
+task build82 # PHP 8.2
 ```

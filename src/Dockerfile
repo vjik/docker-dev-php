@@ -1,5 +1,7 @@
 ARG PHP_VERSION
-FROM php:${PHP_VERSION}
+FROM php:$PHP_VERSION
+
+ARG XDEBUG_VERSION
 
 # Upgrade packages
 RUN apt -y update && apt -y upgrade
@@ -25,7 +27,7 @@ RUN docker-php-ext-install \
     sockets
 
 # Xdebug
-RUN pecl install xdebug
+RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # PHP configuration
