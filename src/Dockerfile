@@ -51,5 +51,6 @@ RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
 # Initial script
 COPY docker-entrypoint.sh /usr/bin
+RUN chmod +x /usr/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
