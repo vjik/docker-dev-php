@@ -5,6 +5,7 @@ PHP docker image for local development that include:
 - PHP with extensions:
   [intl](https://www.php.net/manual/intro.intl.php),
   [gettext](https://www.php.net/manual/intro.gettext.php),
+  [OPcache](https://www.php.net/manual/book.opcache.php),
   [sockets](https://www.php.net/manual/intro.sockets.php)
 - [Node.js](https://nodejs.org/)
 - Bash terminal with [predefined aliases](#aliases)

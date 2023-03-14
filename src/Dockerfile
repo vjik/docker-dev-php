@@ -26,6 +26,10 @@ RUN docker-php-ext-install \
     gettext \
     sockets
 
+# OPcache PHP extension
+RUN docker-php-ext-install opcache
+COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
 # Xdebug
 RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
