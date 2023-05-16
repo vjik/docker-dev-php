@@ -1,6 +1,7 @@
 ARG PHP_VERSION
 FROM php:$PHP_VERSION
 
+ARG PHP_VERSION
 ARG XDEBUG_VERSION
 
 # Upgrade packages
@@ -25,6 +26,7 @@ RUN docker-php-ext-install \
     intl \
     gettext \
     sockets
+RUN if [ $PHP_VERSION != "7.4" ] ; then pecl install uopz ; docker-php-ext-enable uopz ; fi
 
 # OPcache PHP extension
 RUN docker-php-ext-install opcache
