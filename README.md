@@ -8,7 +8,8 @@ PHP docker image for local development that include:
   [OPcache](https://www.php.net/manual/book.opcache.php),
   [Sockets](https://www.php.net/manual/book.sockets.php),
   [uopz](https://www.php.net/manual/book.uopz.php),
-  [PDO PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php)
+  [PDO PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php),
+  [APCu](https://www.php.net/manual/book.apcu.php)
 - [Node.js](https://nodejs.org/)
 - Bash terminal with [predefined aliases](#aliases)
 - [Starship shell prompt](https://starship.rs/)

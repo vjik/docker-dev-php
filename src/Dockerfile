@@ -21,6 +21,14 @@ RUN apt -y install \
     locales \
     openssh-client
 
+# Node.js
+RUN curl -sL https://deb.nodesource.com/setup_19.x | bash - && \
+    apt-get install -y nodejs
+
+# Xdebug
+RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 # PHP extensions
 RUN docker-php-ext-install \
     intl \
@@ -32,13 +40,13 @@ RUN if [ $PHP_VERSION != "7.4" ] ; then pecl install uopz ; docker-php-ext-enabl
 RUN docker-php-ext-install opcache
 COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
+# APCu
+RUN pecl install apcu
+COPY apcu.ini /usr/local/etc/php/conf.d/apcu.ini
+
 # PDO PostgreSQL driver
 RUN apt -y install libpq-dev
 RUN docker-php-ext-install pdo_pgsql
-
-# Xdebug
-RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # PHP configuration
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
@@ -46,10 +54,6 @@ COPY php.ini /usr/local/etc/php/conf.d/php.ini
 # Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer completion bash | tee /etc/bash_completion.d/composer
-
-# Node.js
-RUN curl -sL https://deb.nodesource.com/setup_19.x | bash - && \
-    apt-get install -y nodejs
 
 # Locales
 RUN sed -i '/en_US\.UTF-8/s/^# //g' /etc/locale.gen
