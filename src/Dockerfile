@@ -32,6 +32,10 @@ RUN if [ $PHP_VERSION != "7.4" ] ; then pecl install uopz ; docker-php-ext-enabl
 RUN docker-php-ext-install opcache
 COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
+# PDO PostgreSQL driver
+RUN apt -y install libpq-dev
+RUN docker-php-ext-install pdo_pgsql
+
 # Xdebug
 RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
