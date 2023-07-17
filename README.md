@@ -29,7 +29,7 @@ PHP docker image for local development that include:
 docker pull vjik/dev-php:8.1
 ```
 
-Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
+Tags are named by PHP version used: `8.2`, `8.1`, `8.0`, `7.4`.
 
 ### Run container
 
@@ -46,10 +46,10 @@ docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik
   (`/projects`).
 - `-w /projects` — Set `/projects` as working directory inside the container.
 - `vjik/dev-php:8.1` — Image name.
-- `--uname vjik` — Set username in container.
-- `--uid \`id -u\`` — Set user ID in container (`\`id -u\``).
-- `--gname vjik` — Set user group name in container.
-- `--gid 1000` — Set user group ID in container.
+- ``--uname `id -un` `` — Set username in container (`id -un` returns current user name).
+- ``--uid `id -u` `` — Set user ID in container (`id -u` returns current user ID).
+- ``--gname `id -gn` `` — Set user group name in container (`id -gn` returns current user group name).
+- ``--gid `id -g` `` — Set user group ID in container (`id -g` returns current user group ID).
 
 Recommended to use the same username and group as in your system.
 
