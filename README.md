@@ -26,17 +26,17 @@ PHP docker image for local development that include:
 [Image on DockerHub](https://hub.docker.com/r/vjik/dev-php), docker pull command:
 
 ```shell
-docker pull vjik/dev-php:8.1
+docker pull vjik/dev-php:8.2
 ```
 
-Tags are named by PHP version used: `8.1`, `8.0`, `7.4`.
+Tags are named by PHP version used: `8.2`, `8.1`, `8.0`, `7.4`.
 
 ### Run container
 
 Recommended run command:
 
 ```shell
-docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.1 --uname vjik --uid 1000 --gname vjik -gid 1000
+docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.2 --uname `id -un` --uid `id -u` --gname `id -gn` -gid `id -g`
 ```
 
 - `-it` — Interactive mode with allocate a pseudo terminal.
@@ -45,11 +45,11 @@ docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik
 - `-v /host/projects:/projects` — Mount folder with your projects (replace `/host/projects` to your path) to container
   (`/projects`).
 - `-w /projects` — Set `/projects` as working directory inside the container.
-- `vjik/dev-php:8.1` — Image name.
-- `--uname vjik` — Set username in container.
-- `--uid 1000` — Set user ID in container.
-- `--gname vjik` — Set user group name in container.
-- `--gid 1000` — Set user group ID in container.
+- `vjik/dev-php:8.2` — Image name.
+- ``--uname `id -un` `` — Set username in container (`id -un` returns current user name).
+- ``--uid `id -u` `` — Set user ID in container (`id -u` returns current user ID).
+- ``--gname `id -gn` `` — Set user group name in container (`id -gn` returns current user group name).
+- ``--gid `id -g` `` — Set user group ID in container (`id -g` returns current user group ID).
 
 Recommended to use the same username and group as in your system.
 
