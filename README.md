@@ -31,6 +31,9 @@ docker pull vjik/dev-php:8.2
 
 Tags are named by PHP version used: `8.2`, `8.1`, `8.0`, `7.4`.
 
+Extra tags:
+- `8.1-uopz` — with [uopz](https://www.php.net/manual/book.uopz.php) PHP extension.
+
 ### Run container
 
 Recommended run command:
@@ -105,5 +108,6 @@ Use [Task](https://taskfile.dev/) for simplify run:
 task build74 # PHP 7.4
 task build80 # PHP 8.0
 task build81 # PHP 8.1
+task build81-uopz # PHP 8.1 + uopz PHP extension
 task build82 # PHP 8.2
 ```

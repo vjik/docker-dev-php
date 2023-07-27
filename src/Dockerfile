@@ -3,6 +3,8 @@ FROM php:$PHP_VERSION
 
 ARG PHP_VERSION
 ARG XDEBUG_VERSION
+ARG INSTALL_XDEBUG=1
+ARG INSTALL_UOPZ=0
 
 # Upgrade packages
 RUN apt -y update && apt -y upgrade
@@ -26,8 +28,22 @@ RUN curl -sL https://deb.nodesource.com/setup_19.x | bash - && \
     apt-get install -y nodejs
 
 # Xdebug
-RUN if [ -z $XDEBUG_VERSION ] ; then pecl install xdebug ; else pecl install "xdebug-$XDEBUG_VERSION" ; fi
+RUN if [ $INSTALL_XDEBUG -eq 1 ] ; \
+      then \
+        if [ -z $XDEBUG_VERSION ] ; \
+          then pecl install xdebug ; \
+          else pecl install "xdebug-$XDEBUG_VERSION" ; \
+        fi ; \
+        docker-php-ext-enable xdebug ; \
+    fi
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+# uopz
+RUN if [ $INSTALL_UOPZ -eq 1 ] ; \
+      then \
+        pecl install uopz ; \
+        docker-php-ext-enable uopz ; \
+    fi
 
 # PHP extensions
 RUN docker-php-ext-install \

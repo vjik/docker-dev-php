@@ -4,15 +4,18 @@ tasks:
   build74: docker build -t vjik/dev-php:7.4 --build-arg PHP_VERSION=7.4 --build-arg XDEBUG_VERSION=3.1.6 ./src
   build80: docker build -t vjik/dev-php:8.0 --build-arg PHP_VERSION=8.0 ./src
   build81: docker build -t vjik/dev-php:8.1 --build-arg PHP_VERSION=8.1 ./src
+  build81-uopz: docker build -t vjik/dev-php:8.1-uopz --build-arg PHP_VERSION=8.1 --build-arg INSTALL_UOPZ=1 ./src
   build82: docker build -t vjik/dev-php:8.2 --build-arg PHP_VERSION=8.2 ./src
   build-all:
     - task build74
     - task build80
     - task build81
+    - task build81-uopz
     - task build82
   push-all:
     - docker push vjik/dev-php:7.4
     - docker push vjik/dev-php:8.0
     - docker push vjik/dev-php:8.1
+    - docker push vjik/dev-php:8.1-uopz
     - docker push vjik/dev-php:8.2
   run: docker run -it --rm vjik/dev-php:{{.CLI_ARGS}}
