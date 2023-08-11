@@ -3,6 +3,7 @@
 PHP docker image for local development that include:
 
 - PHP with extensions:
+  [BCMath](https://www.php.net/manual/book.bc.php),
   [intl](https://www.php.net/manual/book.intl.php),
   [Gettext](https://www.php.net/manual/book.gettext.php),
   [OPcache](https://www.php.net/manual/book.opcache.php),

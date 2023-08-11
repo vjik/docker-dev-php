@@ -47,6 +47,7 @@ RUN if [ $INSTALL_UOPZ -eq 1 ] ; \
 
 # PHP extensions
 RUN docker-php-ext-install \
+    bcmath \
     intl \
     gettext \
     sockets
