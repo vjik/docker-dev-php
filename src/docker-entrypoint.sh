@@ -45,6 +45,9 @@ useradd \
     "$USER_NAME"
 echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME" &> /dev/null
 
+# Allow use sudo without password
+echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 homedir=$( getent passwd "$USER_NAME" | cut -d: -f6 )
 
 # SSH configuration
