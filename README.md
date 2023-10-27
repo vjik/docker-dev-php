@@ -1,22 +1,27 @@
 # `vjik/dev-php` Docker Image
 
-PHP docker image for local development that include:
+PHP docker images for local development. All images contain:
 
 - PHP with extensions:
   [BCMath](https://www.php.net/manual/book.bc.php),
   [intl](https://www.php.net/manual/book.intl.php),
   [Gettext](https://www.php.net/manual/book.gettext.php),
-  [OPcache](https://www.php.net/manual/book.opcache.php),
   [Sockets](https://www.php.net/manual/book.sockets.php),
   [PDO PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php),
   [APCu](https://www.php.net/manual/book.apcu.php)
-- [Node.js](https://nodejs.org/)
 - Bash terminal with [predefined aliases](#aliases)
 - [Starship shell prompt](https://starship.rs/)
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
 - [GIT](https://git-scm.com/)
 - [GnuPG](https://www.gnupg.org/) for sign commits
 - OpenSSH authentication agent (`ssh-agent`)
+
+Images with some tags additional contain:
+
+- [Node.js](https://nodejs.org/)
+- [Xdebug](https://xdebug.org/)
+- [OPcache](https://www.php.net/manual/book.opcache.php) PHP extension
+- [uopz](https://www.php.net/manual/book.uopz.php) PHP extension 
 
 ![](screenshot.png)
 
@@ -30,10 +35,22 @@ PHP docker image for local development that include:
 docker pull vjik/dev-php:8.2
 ```
 
-Tags are named by PHP version used: `8.2`, `8.1`, `8.0`, `7.4`.
+Development tags:
 
-Extra tags:
-- `8.1-uopz` — with [uopz](https://www.php.net/manual/book.uopz.php) PHP extension.
+|        Tag        | PHP version | Node.js |  Xdebug  | OPcache | uopz |
+|:-----------------:|:-----------:|:-------:|:--------:|:-------:|:----:|
+|        8.2        |     8.2     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
+|        8.1        |     8.1     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
+|        8.0        |     8.0     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
+|        7.4        |     7.4     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
+|     8.1-uopz      |     8.1     |    ✔️   |    ✔️    |    ✔️   |  ✔️  |
+
+Benchmark tags:
+
+|        Tag        | PHP version | Node.js |  Xdebug  | OPcache | uopz |
+|:-----------------:|:-----------:|:-------:|:--------:|:-------:|:----:|
+|     8.2-bench     |     8.2     |    ❌   |    ❌    |    ❌   |  ❌  |
+| 8.2-bench-opcache |     8.2     |    ❌   |    ❌    |    ✔️   |  ❌  |
 
 ### Run container
 
@@ -103,12 +120,4 @@ To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.co
 
 ## Build an image
 
-Use [Task](https://taskfile.dev/) for simplify run:
-
-```shell
-task build74 # PHP 7.4
-task build80 # PHP 8.0
-task build81 # PHP 8.1
-task build81-uopz # PHP 8.1 + uopz PHP extension
-task build82 # PHP 8.2
-```
+Use [Task](https://taskfile.dev/) for simplify run.

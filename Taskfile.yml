@@ -6,16 +6,22 @@ tasks:
   build81: docker build -t vjik/dev-php:8.1 --build-arg PHP_VERSION=8.1 ./image/dev
   build81-uopz: docker build -t vjik/dev-php:8.1-uopz --build-arg PHP_VERSION=8.1 --build-arg INSTALL_UOPZ=1 ./image/dev
   build82: docker build -t vjik/dev-php:8.2 --build-arg PHP_VERSION=8.2 ./image/dev
+  build82-bench: docker build -t vjik/dev-php:8.2-bench --build-arg PHP_VERSION=8.2 ./image/bench
+  build82-bench-opcache: docker build -t vjik/dev-php:8.2-bench --build-arg PHP_VERSION=8.2 --build-arg INSTALL_OPCACHE=1 ./image/bench
   build-all:
     - task build74
     - task build80
     - task build81
     - task build81-uopz
     - task build82
+    - task build82-bench
+    - task build82-bench-opcache
   push-all:
     - docker push vjik/dev-php:7.4
     - docker push vjik/dev-php:8.0
     - docker push vjik/dev-php:8.1
     - docker push vjik/dev-php:8.1-uopz
     - docker push vjik/dev-php:8.2
+    - docker push vjik/dev-php:8.2-bench
+    - docker push vjik/dev-php:8.2-bench-opcache
   run: docker run -it --rm vjik/dev-php:{{.CLI_ARGS}}
