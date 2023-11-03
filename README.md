@@ -16,13 +16,6 @@ PHP docker images for local development. All images contain:
 - [GnuPG](https://www.gnupg.org/) for sign commits
 - OpenSSH authentication agent (`ssh-agent`)
 
-Images with some tags additional contain:
-
-- [Node.js](https://nodejs.org/)
-- [Xdebug](https://xdebug.org/)
-- [OPcache](https://www.php.net/manual/book.opcache.php) PHP extension
-- [uopz](https://www.php.net/manual/book.uopz.php) PHP extension 
-
 ![](screenshot.png)
 
 ## General usage
@@ -37,20 +30,28 @@ docker pull vjik/dev-php:8.2
 
 Development tags:
 
-|        Tag        | PHP version | Node.js |  Xdebug  | OPcache | uopz |
-|:-----------------:|:-----------:|:-------:|:--------:|:-------:|:----:|
-|        8.2        |     8.2     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
-|        8.1        |     8.1     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
-|        8.0        |     8.0     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
-|        7.4        |     7.4     |    ✔️   |    ✔️    |    ✔️   |  ❌  |
-|     8.1-uopz      |     8.1     |    ✔️   |    ✔️    |    ✔️   |  ✔️  |
+- [Node.js](https://nodejs.org/)
+- [Xdebug](https://xdebug.org/)
+- [OPcache](https://www.php.net/manual/book.opcache.php) PHP extension
+- [GitHub Lookup Next ID Utility](https://github.com/vjik/github-lookup-next-id)
+- [uopz](https://www.php.net/manual/book.uopz.php) PHP extension
+
+|        Tag        | PHP version | uopz |
+|:-----------------:|:-----------:|:----:|
+|        8.2        |     8.2     |  ❌  |
+|        8.1        |     8.1     |  ❌  |
+|        8.0        |     8.0     |  ❌  |
+|        7.4        |     7.4     |  ❌  |
+|     8.1-uopz      |     8.1     |  ✔️  |
 
 Benchmark tags:
 
-|        Tag        | PHP version | Node.js |  Xdebug  | OPcache | uopz |
-|:-----------------:|:-----------:|:-------:|:--------:|:-------:|:----:|
-|     8.2-bench     |     8.2     |    ❌   |    ❌    |    ❌   |  ❌  |
-| 8.2-bench-opcache |     8.2     |    ❌   |    ❌    |    ✔️   |  ❌  |
+- [OPcache](https://www.php.net/manual/book.opcache.php) PHP extension
+
+|        Tag        | PHP version | OPcache |
+|:-----------------:|:-----------:|:-------:|
+|     8.2-bench     |     8.2     |    ❌   |
+| 8.2-bench-opcache |     8.2     |    ✔️   |
 
 ### Run container
 

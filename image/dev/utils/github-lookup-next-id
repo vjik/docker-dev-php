@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#
+# GitHub Lookup Next ID Utility 1.0
+# by Sergei Predvoditelev (https://predvoditelev.ru)
+#
+# https://github.com/vjik/github-lookup-next-id
+#
+
+# First ID to iterate
+id=$1
+if [ -z $id ]; then
+  id=1
+fi
+
+# Check if the current directory is a Git repository
+if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+  echo "Not a Git repository."
+  exit 1
+fi
+
+# Extract the repository URL
+origin_url=$(git config --get remote.origin.url)
+if [ -z $origin_url ]; then
+  echo "No remote origin URL found."
+  exit 1
+fi
+
+# Get the base repository URL
+if [[ $origin_url =~ (git@github\.com:|https://github\.com/)([^/]+)/([^/]+)\.git ]]; then
+  username=${BASH_REMATCH[2]}
+  repo=${BASH_REMATCH[3]}
+  repo_url="https://github.com/$username/$repo"
+else
+  echo "Unsupported GitHub repository URL format."
+  exit 1
+fi
+
+# Output the repository URL
+echo "GitHub Repository: $repo_url"
+
+# Loop to check the response code
+while true; do
+  url="$repo_url/issues/$id/"
+  response=$(curl -s -X HEAD -w "%{http_code}" "$url")
+
+  echo -ne "$url ... $response \r"
+
+  if [ "$response" -eq 404 ]; then
+    echo -ne "\033[K"
+    break
+  fi
+
+  ((id++))
+done
+
+# Output the found identifier
+echo "Next ID — $id"
