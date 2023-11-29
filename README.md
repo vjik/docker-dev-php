@@ -25,7 +25,7 @@ PHP docker images for local development. All images contain:
 [Image on DockerHub](https://hub.docker.com/r/vjik/dev-php), docker pull command:
 
 ```shell
-docker pull vjik/dev-php:8.2
+docker pull vjik/dev-php:8.3
 ```
 
 Development tags:
@@ -36,13 +36,14 @@ Development tags:
 - [GitHub Lookup Next ID Utility](https://github.com/vjik/github-lookup-next-id)
 - [uopz](https://www.php.net/manual/book.uopz.php) PHP extension
 
-|        Tag        | PHP version | uopz |
-|:-----------------:|:-----------:|:----:|
-|        8.2        |     8.2     |  ❌  |
-|        8.1        |     8.1     |  ❌  |
-|        8.0        |     8.0     |  ❌  |
-|        7.4        |     7.4     |  ❌  |
-|     8.1-uopz      |     8.1     |  ✔️  |
+|   Tag    | PHP version | Xdebug | uopz |
+|:--------:|:-----------:|:------:|:----:|
+|   8.3    |     8.3     |   ❌   |  ❌  |
+|   8.2    |     8.2     |   ✔️   |  ❌  |
+|   8.1    |     8.1     |   ✔️   |  ❌  |
+|   8.0    |     8.0     |   ✔️   |  ❌  |
+|   7.4    |     7.4     |   ✔️   |  ❌  |
+| 8.1-uopz |     8.1     |   ✔️   |  ✔️  |
 
 Benchmark tags:
 
