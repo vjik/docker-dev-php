@@ -50,6 +50,7 @@ RUN docker-php-ext-install \
     bcmath \
     intl \
     gettext \
+    pcntl \
     sockets
 
 # OPcache PHP extension
