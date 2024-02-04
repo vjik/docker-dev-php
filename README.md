@@ -8,7 +8,8 @@ PHP docker images for local development. All images contain:
   [Gettext](https://www.php.net/manual/book.gettext.php),
   [Sockets](https://www.php.net/manual/book.sockets.php),
   [PDO PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php),
-  [APCu](https://www.php.net/manual/book.apcu.php)
+  [APCu](https://www.php.net/manual/book.apcu.php),
+  [Process Control (PCNTL)](https://www.php.net/manual/en/book.pcntl.php)
 - Bash terminal with [predefined aliases](#aliases)
 - [Starship shell prompt](https://starship.rs/)
 - [Composer](https://getcomposer.org/) with [completion](https://getcomposer.org/doc/03-cli.md#bash-completions)
