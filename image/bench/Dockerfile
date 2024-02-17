@@ -44,6 +44,10 @@ COPY apcu.ini /usr/local/etc/php/conf.d/apcu.ini
 RUN apt -y install libpq-dev
 RUN docker-php-ext-install pdo_pgsql
 
+# Memcached
+RUN apt -y install libmemcached-dev zlib1g-dev && pecl install memcached
+RUN docker-php-ext-enable memcached
+
 # PHP configuration
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
