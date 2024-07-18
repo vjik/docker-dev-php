@@ -120,6 +120,7 @@ To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.co
 | psalm80 | ./vendor/bin/psalm --no-cache --php-version=8.0 |
 | psalm81 | ./vendor/bin/psalm --no-cache --php-version=8.1 |
 | psalm82 | ./vendor/bin/psalm --no-cache --php-version=8.2 |
+| psalm83 | ./vendor/bin/psalm --no-cache --php-version=8.3 |
 | cls     | clear                                           |
 
 ## Build an image
