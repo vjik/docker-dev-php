@@ -7,7 +7,7 @@ PHP docker images for local development. All images contain:
   [intl](https://www.php.net/manual/book.intl.php),
   [Gettext](https://www.php.net/manual/book.gettext.php),
   [Sockets](https://www.php.net/manual/book.sockets.php),
-  [PDO PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php),
+  PDO ([MySQL](https://www.php.net/manual/ru/ref.pdo-mysql.php), [PostgreSQL](https://www.php.net/manual/ref.pdo-pgsql.php)),
   [APCu](https://www.php.net/manual/book.apcu.php),
   [Memcached](https://www.php.net/manual/book.memcached.php),
   [Process Control (PCNTL)](https://www.php.net/manual/en/book.pcntl.php)

@@ -61,9 +61,9 @@ COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 RUN pecl install apcu
 COPY apcu.ini /usr/local/etc/php/conf.d/apcu.ini
 
-# PDO PostgreSQL driver
+# PDO drivers: PostgreSQL, MySQL
 RUN apt -y install libpq-dev
-RUN docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-install pdo_pgsql mysqli pdo_mysql
 
 # Memcached
 RUN apt -y install libmemcached-dev zlib1g-dev && pecl install memcached
