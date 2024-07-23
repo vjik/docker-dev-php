@@ -1,9 +1,9 @@
 #!/bin/bash
 
-USER_ID=1000
-USER_NAME=vjik
-GROUP_ID=1000
-GROUP_NAME=vjik
+USER_ID=-1
+USER_NAME=
+GROUP_ID=-1
+GROUP_NAME=
 
 OPTS=$(getopt -q -l uid:,uname:,gid:,gname: -o "" -- "$@")
 
@@ -36,17 +36,24 @@ while true; do
   esac
 done
 
-groupadd -g "$GROUP_ID" "$GROUP_NAME"
-useradd \
-    -u "$USER_ID" \
-    -g "$GROUP_NAME" \
-    -G sudo \
-    -m \
-    "$USER_NAME"
-echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME" &> /dev/null
+if [ "$USER_ID" -eq -1 ] || [ -z "$USER_NAME" ] || [ "$GROUP_ID" -eq -1 ] || [ -z "$GROUP_NAME" ]; then
+  USER_ID=0
+  USER_NAME=root
+  GROUP_ID=0
+  GROUP_NAME=root
+else
+  groupadd -g "$GROUP_ID" "$GROUP_NAME"
+  useradd \
+      -u "$USER_ID" \
+      -g "$GROUP_NAME" \
+      -G sudo \
+      -m \
+      "$USER_NAME"
+  echo -e "q1w2e3r4\nq1w2e3r4\n" | passwd "$USER_NAME" &> /dev/null
 
-# Allow use sudo without password
-echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+  # Allow use sudo without password
+  echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+fi
 
 homedir=$( getent passwd "$USER_NAME" | cut -d: -f6 )
 
