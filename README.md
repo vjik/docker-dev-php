@@ -61,7 +61,7 @@ Benchmark tags:
 Recommended run command:
 
 ```shell
-docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.2 --uname `id -un` --uid `id -u` --gname `id -gn` -gid `id -g`
+docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.3
 ```
 
 - `-it` — Interactive mode with allocate a pseudo terminal.
@@ -70,13 +70,18 @@ docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik
 - `-v /host/projects:/projects` — Mount folder with your projects (replace `/host/projects` to your path) to container
   (`/projects`).
 - `-w /projects` — Set `/projects` as working directory inside the container.
-- `vjik/dev-php:8.2` — Image name.
+- `vjik/dev-php:8.3` — Image name.
+
+If you use WSL in Windows recommended to add the same username and group as in your system:
+
+```shell
+docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.3 --uname `id -un` --uid `id -u` --gname `id -gn` -gid `id -g`
+```
+
 - ``--uname `id -un` `` — Set username in container (`id -un` returns current user name).
 - ``--uid `id -u` `` — Set user ID in container (`id -u` returns current user ID).
 - ``--gname `id -gn` `` — Set user group name in container (`id -gn` returns current user group name).
 - ``--gid `id -g` `` — Set user group ID in container (`id -g` returns current user group ID).
-
-Recommended to use the same username and group as in your system.
 
 #### SSH configuration
 
