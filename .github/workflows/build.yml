@@ -1,0 +1,85 @@
+name: Build
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.editorconfig'
+      - '.gitignore'
+      - 'README.md'
+      - 'screenshot.png'
+      - 'Taskfile.yml'
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build vjik/dev-php:7.4
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=7.4
+            XDEBUG_VERSION=3.1.6
+          tags: vjik/dev-php:7.4
+
+      - name: Build vjik/dev-php:8.0
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=8.0
+          tags: vjik/dev-php:8.0
+
+      - name: Build vjik/dev-php:8.1
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=8.1
+          tags: vjik/dev-php:8.1
+
+      - name: Build vjik/dev-php:8.1-uopz
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=8.1
+            INSTALL_UOPZ=1
+          tags: vjik/dev-php:8.1-uopz
+
+      - name: Build vjik/dev-php:8.2
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=8.2
+          tags: vjik/dev-php:8.2
+
+      - name: Build vjik/dev-php:8.3
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/dev"
+          build-args: |
+            PHP_VERSION=8.3
+          tags: vjik/dev-php:8.3
+
+      - name: Build vjik/dev-php:8.2-bench
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/bench"
+          build-args: |
+            PHP_VERSION=8.2
+          tags: vjik/dev-php:8.2-bench
+
+      - name: Build vjik/dev-php:8.2-bench-opcache
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:image/bench"
+          build-args: |
+            PHP_VERSION=8.2
+            INSTALL_OPCACHE=1
+          tags: vjik/dev-php:8.2-bench-opcache
