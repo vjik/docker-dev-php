@@ -1,9 +1,7 @@
-name: Docker Hub
+name: Build
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
     paths-ignore:
       - '.editorconfig'
       - '.gitignore'
@@ -12,24 +10,17 @@ on:
       - 'Taskfile.yml'
 
 jobs:
-  build-and-push:
+  test-build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Build and push vjik/dev-php:7.4
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=7.4
             XDEBUG_VERSION=3.1.6
@@ -39,7 +30,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=8.0
           tags: vjik/dev-php:8.0
@@ -48,7 +38,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=8.1
           tags: vjik/dev-php:8.1
@@ -57,7 +46,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=8.1
             INSTALL_UOPZ=1
@@ -67,7 +55,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=8.2
           tags: vjik/dev-php:8.2
@@ -76,7 +63,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/dev"
-          push: true
           build-args: |
             PHP_VERSION=8.3
           tags: vjik/dev-php:8.3
@@ -85,7 +71,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/bench"
-          push: true
           build-args: |
             PHP_VERSION=8.2
           tags: vjik/dev-php:8.2-bench
@@ -94,7 +79,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: "{{defaultContext}}:image/bench"
-          push: true
           build-args: |
             PHP_VERSION=8.2
             INSTALL_OPCACHE=1
