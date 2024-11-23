@@ -40,6 +40,7 @@ Development tags:
 
 |   Tag    | PHP version | Xdebug | uopz |
 |:--------:|:-----------:|:------:|:----:|
+|   8.4    |     8.4     |   ✔️   |  ❌  |
 |   8.3    |     8.3     |   ✔️   |  ❌  |
 |   8.2    |     8.2     |   ✔️   |  ❌  |
 |   8.1    |     8.1     |   ✔️   |  ❌  |
@@ -126,6 +127,7 @@ To request passphrase in terminal add `pinentry-mode loopback` option to `gpg.co
 | psalm81 | ./vendor/bin/psalm --no-cache --php-version=8.1 |
 | psalm82 | ./vendor/bin/psalm --no-cache --php-version=8.2 |
 | psalm83 | ./vendor/bin/psalm --no-cache --php-version=8.3 |
+| psalm84 | ./vendor/bin/psalm --no-cache --php-version=8.4 |
 | cls     | clear                                           |
 
 ## Build an image
