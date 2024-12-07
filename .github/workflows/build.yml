@@ -73,7 +73,7 @@ jobs:
           context: "{{defaultContext}}:image/dev"
           build-args: |
             PHP_VERSION=8.4
-            XDEBUG_VERSION=3.4.0beta1
+            XDEBUG_VERSION=3.4.0
           tags: vjik/dev-php:8.4
 
       - name: Build vjik/dev-php:8.2-bench
