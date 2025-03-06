@@ -76,7 +76,7 @@ docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik
 If you use WSL in Windows recommended to add the same username and group as in your system:
 
 ```shell
-docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.3 --uname `id -un` --uid `id -u` --gname `id -gn` -gid `id -g`
+docker run -it --rm --name dev-php -v /host/projects:/projects -w /projects vjik/dev-php:8.3 --uname `id -un` --uid `id -u` --gname `id -gn` --gid `id -g`
 ```
 
 - ``--uname `id -un` `` — Set username in container (`id -un` returns current user name).
