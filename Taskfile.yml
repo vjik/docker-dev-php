@@ -1,6 +1,7 @@
 version: 3
 
 tasks:
+  default: task --list-all
   build74: docker build -t vjik/dev-php:7.4 --build-arg PHP_VERSION=7.4 --build-arg XDEBUG_VERSION=3.1.6 ./image/dev
   build80: docker build -t vjik/dev-php:8.0 --build-arg PHP_VERSION=8.0 ./image/dev
   build81: docker build -t vjik/dev-php:8.1 --build-arg PHP_VERSION=8.1 ./image/dev

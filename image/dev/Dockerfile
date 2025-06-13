@@ -84,6 +84,9 @@ ENV LC_ALL en_US.UTF-8
 # Starship shell prompt
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 
+# Task
+RUN npm install -g @go-task/cli
+
 # GitHub Lookup Next ID Utility
 COPY ./utils/github-lookup-next-id /usr/bin/github-lookup-next-id
 

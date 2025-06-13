@@ -17,6 +17,7 @@ PHP docker images for local development. All images contain:
 - [GIT](https://git-scm.com/)
 - [GnuPG](https://www.gnupg.org/) for sign commits
 - OpenSSH authentication agent (`ssh-agent`)
+- [Task](https://taskfile.dev/) tool
 
 ![](screenshot.png)
 
