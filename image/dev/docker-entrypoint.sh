@@ -77,7 +77,11 @@ fi
 echo 'eval "$(starship init bash)"' >> "$homedir"/.bashrc
 
 # SSH agent
-echo 'eval "$(ssh-agent -s)"' >> "$homedir"/.bashrc
+if [ -n "$SSH_AUTH_SOCK" ]; then
+  echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$homedir"/.bashrc
+else
+  echo 'eval "$(ssh-agent -s)"' >> "$homedir"/.bashrc
+fi
 
 # Composer Aliases
 echo '
