@@ -92,6 +92,14 @@ appropriate argument to the container run command. For example:
 
 `-v ~/.ssh:/config/.ssh`
 
+Additionally, if you want to use your host machine's SSH agent inside the container,
+you can forward the SSH agent socket by mounting the socket and passing the environment variable:
+
+```
+-v $SSH_AUTH_SOCK:/tmp/ssh-agent \
+-e SSH_AUTH_SOCK=/tmp/ssh-agent
+```
+
 #### GIT configuration
 
 You can configure GIT in container via mount configuration file `.gitconfig` to path `/config/.gitconfig`. To do this, 
