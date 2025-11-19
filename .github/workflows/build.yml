@@ -46,7 +46,7 @@ jobs:
         with:
           context: "{{defaultContext}}:image/dev"
           build-args: |
-            PHP_VERSION=8.1
+            PHP_VERSION=8.1.32
             INSTALL_UOPZ=1
           tags: vjik/dev-php:8.1-uopz
 
