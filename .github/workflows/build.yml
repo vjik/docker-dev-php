@@ -7,7 +7,6 @@ on:
       - '.gitignore'
       - 'README.md'
       - 'screenshot.png'
-      - 'Taskfile.yml'
 
 jobs:
   test-build:
