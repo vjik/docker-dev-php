@@ -9,6 +9,7 @@ tasks:
   build82: docker build -t vjik/dev-php:8.2 --build-arg PHP_VERSION=8.2 ./image/dev
   build83: docker build -t vjik/dev-php:8.3 --build-arg PHP_VERSION=8.3 ./image/dev
   build84: docker build -t vjik/dev-php:8.4 --build-arg PHP_VERSION=8.4 --build-arg XDEBUG_VERSION=3.4.0 ./image/dev
+  build85: docker build -t vjik/dev-php:8.5 --build-arg PHP_VERSION=8.5-rc --build-arg INSTALL_XDEBUG=0 --build-arg INSTALL_OPCACHE=0 ./image/dev
   build82-bench: docker build -t vjik/dev-php:8.2-bench --build-arg PHP_VERSION=8.2 ./image/bench
   build82-bench-opcache: docker build -t vjik/dev-php:8.2-bench-opcache --build-arg PHP_VERSION=8.2 --build-arg INSTALL_OPCACHE=1 ./image/bench
   build-dev:
@@ -19,6 +20,7 @@ tasks:
     - task build82
     - task build83
     - task build84
+    - task build85
   build-bench:
     - task build82-bench
     - task build82-bench-opcache
@@ -33,6 +35,7 @@ tasks:
     - docker push vjik/dev-php:8.2
     - docker push vjik/dev-php:8.3
     - docker push vjik/dev-php:8.4
+    - docker push vjik/dev-php:8.5
   push-bench:
     - docker push vjik/dev-php:8.2-bench
     - docker push vjik/dev-php:8.2-bench-opcache
