@@ -39,16 +39,16 @@ Development tags:
 - [GitHub Lookup Next ID Utility](https://github.com/vjik/github-lookup-next-id)
 - [uopz](https://www.php.net/manual/book.uopz.php) PHP extension
 
-|   Tag    | PHP version | Xdebug | OPcache | uopz |
-|:--------:|:-----------:|:------:|:-------:|:----:|
-|   8.5    |   8.5-rc    |   ❌️   |   ❌    |  ❌  |
-|   8.4    |     8.4     |   ✔️   |   ✔️    |  ❌  |
-|   8.3    |     8.3     |   ✔️   |   ✔️    |  ❌  |
-|   8.2    |     8.2     |   ✔️   |   ✔️    |  ❌  |
-|   8.1    |     8.1     |   ✔️   |   ✔️    |  ❌  |
-|   8.0    |     8.0     |   ✔️   |   ✔️    |  ❌  |
-|   7.4    |     7.4     |   ✔️   |   ✔️    |  ❌  |
-| 8.1-uopz |    8.1.32   |   ✔️   |   ✔️    |  ✔️  |
+|   Tag    | PHP version | Xdebug | uopz |
+|:--------:|:-----------:|:------:|:----:|
+|   8.5    |     8.5     |   ❌️   |  ❌  |
+|   8.4    |     8.4     |   ✔️   |  ❌  |
+|   8.3    |     8.3     |   ✔️   |  ❌  |
+|   8.2    |     8.2     |   ✔️   |  ❌  |
+|   8.1    |     8.1     |   ✔️   |  ❌  |
+|   8.0    |     8.0     |   ✔️   |  ❌  |
+|   7.4    |     7.4     |   ✔️   |  ❌  |
+| 8.1-uopz |   8.1.32    |   ✔️   |  ✔️  |
 
 Benchmark tags:
 
