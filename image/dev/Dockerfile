@@ -5,6 +5,7 @@ ARG PHP_VERSION
 ARG XDEBUG_VERSION
 ARG INSTALL_XDEBUG=1
 ARG INSTALL_UOPZ=0
+ARG INSTALL_OPCACHE=1
 
 # Upgrade packages
 RUN apt -y update && apt -y upgrade
@@ -54,7 +55,7 @@ RUN docker-php-ext-install \
     sockets
 
 # OPcache PHP extension
-RUN docker-php-ext-install opcache
+RUN if [ "$INSTALL_OPCACHE" -eq 1 ]; then docker-php-ext-install opcache; fi
 COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # APCu
