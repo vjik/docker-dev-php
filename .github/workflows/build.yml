@@ -81,7 +81,6 @@ jobs:
           context: "{{defaultContext}}:image/dev"
           build-args: |
             PHP_VERSION=8.5
-            INSTALL_XDEBUG=0
             INSTALL_OPCACHE=0
           tags: vjik/dev-php:8.5
 
